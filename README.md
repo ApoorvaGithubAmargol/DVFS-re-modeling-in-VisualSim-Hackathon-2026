@@ -94,24 +94,13 @@ Scheduler_3          LittleStbyPwr   LittleActPwr   0.0   0.0   Standby   Standb
 
 ---
 
-## How to Open and Run in VisualSim Architect
+## Top Model :
 
-1. Launch **VisualSim Architect**.
-2. Go to **File $\rightarrow$ Open** and select the model file:
-   ```
-   Multi_Core_DVFS_Hybrid_BigLittle.xml
-   ```
-3. To view or adjust core ratios and clock rates:
-   - Double-click the green **`Threads_and_Cores`** block to inspect `Big_Core_Speed` and `Little_Core_Speed`.
-   - Double-click the red **`PowerTable2`** block to inspect power values in `Manager_Setup`.
-4. Click the green **Run** button on the top toolbar.
-5. The 4 analytical plot windows will automatically open:
-   - `Waveform_Plot`: Shows task execution across cores.
-   - `Latency`: Displays task processing delays over simulation time.
-   - `Instantaneous_Average_Power`: Displays power consumption profile.
-   - `Temperature`: Plots thermal response via `MyChipTherm`.
+<img width="1555" height="904" alt="Screenshot 2026-10-05 234411" src="https://github.com/user-attachments/assets/a87b21fa-a305-483a-b7fb-1689e4e80bc4" />
 
----
+
+<img width="1920" height="1096" alt="Screenshot 2026-10-05 234345" src="https://github.com/user-attachments/assets/ab92a043-71bd-4e15-b5f4-c7b7113cee14" />
+
 
 
 
