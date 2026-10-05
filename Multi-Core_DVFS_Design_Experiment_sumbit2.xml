@@ -1,0 +1,1083 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE entity PUBLIC "-//Mirabilis Design//DTD MoML 1//EN"
+    "http://www.mirabilisdesign.com/xml/dtd/MoML_1.dtd">
+<entity name="Multi-Core_DVFS_Design_Experiment_sumbit2" class="VisualSim.actor.TypedCompositeActor">
+    <property name="_createdBy" class="VisualSim.kernel.attributes.VersionAttribute" value="2020.Q2"/>
+    <property name="_ModelBuilderSize" class="VisualSim.actor.gui.SizeAttribute" value="[1069, 659]"/>
+    <property name="_ModelBuilderLocation" class="VisualSim.actor.gui.LocationAttribute" value="[224, 130]"/>
+    <property name="DigitalSimulator" class="VisualSim.simulators.de.kernel.DEDirector">
+        <property name="startTime" class="VisualSim.data.expr.Parameter" value="0.0"/>
+        <property name="stopTime" class="VisualSim.data.expr.Parameter" value="SimTime"/>
+        <property name="stopWhenQueueIsEmpty" class="VisualSim.data.expr.Parameter" value="true"/>
+        <property name="writeStatsToFile" class="VisualSim.data.expr.Parameter" value="true"/>
+        <property name="synchronizeToRealTime" class="VisualSim.data.expr.Parameter" value="false"/>
+        <property name="isCQAdaptive" class="VisualSim.data.expr.Parameter" value="true"/>
+        <property name="minBinCount" class="VisualSim.data.expr.Parameter" value="2"/>
+        <property name="binCountFactor" class="VisualSim.data.expr.Parameter" value="2"/>
+        <property name="timeResolution" class="VisualSim.moml.SharedParameter" value="1E-12"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[14.0, 33.0]"/>
+    </property>
+    <property name="annotation" class="VisualSim.kernel.util.Attribute">
+        <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+        <property name="_iconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg><text x="20" y="20" style="font-size:12; font-family:Lucida Console; fill:blue">Overview
+-Multiple cores and multi threads.
+-All threads have the same processing cycles
+-Initial clock speed are the same for all cores
+-Core speed is dynamically modified during simulation
+-Core speed affects the power level for "Active" state
+-The combination of speed and power impact task 
+allocation on cores and the response time.</text></svg>
+            </configure>
+        </property>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-A-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_controllerFactory" class="VisualSim.ModelBuilder.basic.NodeControllerFactory"/>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.AnnotationEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[359.0, 11.0]"/>
+    </property>
+    <property name="annotation34" class="VisualSim.kernel.util.Attribute">
+        <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+        <property name="_iconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg><text x="20" y="20" style="font-size:12; font-family:SansSerif; fill:blue">Four parallel threads
+-All have same task time, task generation rate,
+priority but an unique ID for plotting purpose
+Initially all the Threads start execution in 
+the same cycle. One experiment is to vary the 
+Thread activity relative to the others.  To do 
+this, we change the Start Time of the Task 
+Generator.  We have a parameter called Task_Cycle_Shift.</text></svg>
+            </configure>
+        </property>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-A-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_controllerFactory" class="VisualSim.ModelBuilder.basic.NodeControllerFactory"/>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.AnnotationEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[-4.0, 357.0]"/>
+    </property>
+    <property name="_windowProperties" class="VisualSim.actor.gui.WindowPropertiesAttribute" value="{bounds={-7, -7, 1295, 775}, maximized=true}"/>
+    <property name="_ModelBuilderZoomFactor" class="VisualSim.data.expr.ExpertParameter" value="0.98373838910803"/>
+    <property name="_ModelBuilderCenter" class="VisualSim.data.expr.ExpertParameter" value="{352.48182947019876, 221.70281456953694}"/>
+    <property name="SimTime" class="VisualSim.data.expr.Parameter" value="32.0e-3">
+        <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+        <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+            <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+        </property>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[100.0, 49.0]"/>
+    </property>
+    <property name="annotation2" class="VisualSim.kernel.util.Attribute">
+        <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+        <property name="_iconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg><text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">Four Processor Cores
+-Starting clock speed is same
+-Custom scheduler allocates arriving 
+tasks to the first available core
+-Cores described using Schedulers</text></svg>
+            </configure>
+        </property>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-A-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_controllerFactory" class="VisualSim.ModelBuilder.basic.NodeControllerFactory"/>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.AnnotationEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[1.0, 246.0]"/>
+    </property>
+    <property name="Annotation" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+        <property name="textSize" class="VisualSim.data.expr.Parameter" value="18"/>
+        <property name="textColor" class="VisualSim.actor.gui.ColorAttribute" value="{1.0,0.0,0.2,1.0}"/>
+        <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Dynamic Voltage Frequency Scaling"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[12.0, -10.0]"/>
+    </property>
+    <property name="annotation3" class="VisualSim.kernel.util.Attribute">
+        <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+        <property name="_iconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg><text x="20" y="20" style="font-size:12; font-family:Lucida Console; fill:blue">Power Manager:
+-Maintains the Power table for each 
+core and for each power level
+-Output is instant, average and battery discharge</text></svg>
+            </configure>
+        </property>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-A-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_controllerFactory" class="VisualSim.ModelBuilder.basic.NodeControllerFactory"/>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.AnnotationEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[356.0, 130.0]"/>
+    </property>
+    <property name="Core_Power" class="VisualSim.data.expr.Parameter" value="1000.0/Num_Cores*DVFS_Multiplier">
+        <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon"/>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[100.0, 74.0]"/>
+    </property>
+    <property name="Annotation3" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+        <property name="textColor" class="VisualSim.actor.gui.ColorAttribute" value="{1.0,0.2,0.4,1.0}"/>
+        <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Check for the highest Instant Value&#10;&#10;Output the last value at the end of the simulation"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[367.0, 340.0]"/>
+    </property>
+    <property name="Annotation4" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+        <property name="textColor" class="VisualSim.actor.gui.ColorAttribute" value="{1.0,0.2,0.4,1.0}"/>
+        <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Write these out to a file in the following format:&#10;1. Latency_Flow_1 = 0.25&#10;2. Instant_Power = 200.0&#10;3. Average_Power = 200.0"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[378.0, 409.0]"/>
+    </property>
+    <property name="Ambient_Temp_C" class="VisualSim.data.expr.Parameter" value="40.0">
+        <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+        <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon"/>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[596.0, 248.0]"/>
+    </property>
+    <property name="View_Stats" class="VisualSim.data.expr.Parameter" value="true">
+        <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+        <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+            <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+        </property>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[102.0, 105.0]"/>
+    </property>
+    <property name="Num_Cores" class="VisualSim.data.expr.Parameter" value="4">
+        <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon"/>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[101.0, 88.0]"/>
+    </property>
+    <property name="DVFS_Multiplier" class="VisualSim.data.expr.Parameter" value="1">
+        <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+        <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+            <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+        </property>
+        <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+            </configure>
+        </property>
+        <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[100.0, 61.0]"/>
+    </property>
+    <entity name="Threads_and_Cores" class="VisualSim.actor.TypedCompositeActor">
+        <property name="Rectangle" class="VisualSim.ModelBuilder.kernel.attributes.RectangleAttribute">
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[20.0, 137.0]"/>
+            <property name="width" class="VisualSim.data.expr.Parameter" value="499.0"/>
+            <property name="height" class="VisualSim.data.expr.Parameter" value="223.0"/>
+            <property name="fillColor" class="VisualSim.actor.gui.ColorAttribute" value="{0.95686275,0.8156863,0.8156863,1.0}"/>
+            <property name="_renderFirst" class="VisualSim.kernel.util.SingletonAttribute"/>
+        </property>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="{18.0, 179.0}"/>
+        <property name="SimTime" class="VisualSim.data.expr.Parameter" value="SimTime">
+            <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+                <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+            </property>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[65.0, 28.0]"/>
+        </property>
+        <property name="TASK" class="VisualSim.data.expr.Parameter" value="&quot;SW&quot;">
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon"/>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[471.0, 466.0]"/>
+        </property>
+        <property name="_windowProperties" class="VisualSim.actor.gui.WindowPropertiesAttribute" value="{bounds={-7, -7, 1295, 775}, maximized=true}"/>
+        <property name="_ModelBuilderSize" class="VisualSim.actor.gui.SizeAttribute" value="[1069, 659]"/>
+        <property name="_ModelBuilderZoomFactor" class="VisualSim.data.expr.ExpertParameter" value="0.7949270256668346"/>
+        <property name="_ModelBuilderCenter" class="VisualSim.data.expr.ExpertParameter" value="{367.86932739059984, 239.27694489465162}"/>
+        <property name="Num_Cores" class="VisualSim.data.expr.Parameter" value="Num_Cores">
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon"/>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[472.0, 483.0]"/>
+        </property>
+        <property name="Core_Speed" class="VisualSim.data.expr.Parameter" value="Core_Power">
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon"/>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[472.0, 499.0]"/>
+        </property>
+        <property name="Annotation4" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+            <property name="italic" class="VisualSim.data.expr.Parameter" value="true"/>
+            <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Up to 4 Cores/SystemResource &#10;are supported in this design."/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[558.0, 59.0]"/>
+        </property>
+        <property name="Annotation2" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+            <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Thread 1"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[306.0, 415.0]"/>
+        </property>
+        <property name="Annotation3" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+            <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Thread 2"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[308.0, 463.0]"/>
+        </property>
+        <property name="Annotation5" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+            <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Thread 3"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[308.0, 514.0]"/>
+        </property>
+        <property name="Annotation6" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+            <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Thread 4"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[308.0, 564.0]"/>
+        </property>
+        <property name="Annotation7" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+            <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Scheduler"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[320.0, 146.0]"/>
+        </property>
+        <property name="Task_Cycle_Shift" class="VisualSim.data.expr.Parameter" value="0.001">
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon"/>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[474.0, 532.0]"/>
+        </property>
+        <property name="Core_Power" class="VisualSim.data.expr.Parameter" value="1000.0/Num_Cores*DVFS_Multiplier">
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon"/>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[474.0, 514.0]"/>
+        </property>
+        <property name="DVFS_Multiplier" class="VisualSim.data.expr.Parameter" value="DVFS_Multiplier">
+            <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+                <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+            </property>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[474.0, 548.0]"/>
+        </property>
+        <property name="Annotation" class="VisualSim.ModelBuilder.kernel.attributes.TextAttribute">
+            <property name="text" class="VisualSim.kernel.util.StringAttribute" value="Explorations"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[467.0, 425.0]"/>
+        </property>
+        <property name="Big_Core_Speed" class="VisualSim.data.expr.Parameter" value="Core_Power * 2.5">
+            <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+                <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+            </property>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[13.0, 61.0]"/>
+        </property>
+        <property name="Little_Core_Speed" class="VisualSim.data.expr.Parameter" value="Core_Power * 1.0">
+            <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+                <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+            </property>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[13.0, 61.0]"/>
+        </property>
+        <property name="Big_Core_Power" class="VisualSim.data.expr.Parameter" value="350.0/Num_Cores*DVFS_Multiplier">
+            <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+                <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+            </property>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[13.0, 61.0]"/>
+        </property>
+        <property name="Little_Core_Power" class="VisualSim.data.expr.Parameter" value="100.0/Num_Cores*DVFS_Multiplier">
+            <property name="_hideName" class="VisualSim.kernel.util.SingletonAttribute"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.ValueIcon">
+                <property name="_color" class="VisualSim.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}"/>
+            </property>
+            <property name="_smallIconDescription" class="VisualSim.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+<svg>
+        <text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:blue">-P-</text>
+      </svg>
+                </configure>
+            </property>
+            <property name="_editorFactory" class="VisualSim.ModelBuilder.toolbox.VisibleParameterEditorFactory"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[13.0, 61.0]"/>
+        </property>
+        <entity name="SystemResource" class="VisualSim.actor.lib.Scheduler_SW">
+            <property name="Resource_Name" class="VisualSim.data.expr.Parameter" value="&quot;0&quot;"/>
+            <property name="Clock_Rate_Mhz" class="VisualSim.data.expr.Parameter" value="Big_Core_Speed"/>
+            <property name="Time_Type" class="VisualSim.kernel.util.StringAttribute" value="Relative Time">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Relative Time" class="VisualSim.kernel.util.StringAttribute" value="Relative Time"/>
+                    <property name="Number Clocks" class="VisualSim.kernel.util.StringAttribute" value="Number Clocks"/>
+                </property>
+            </property>
+            <property name="Scheduler_Type" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Scheduler_FCFS" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS"/>
+                    <property name="FCFS + Preempt" class="VisualSim.kernel.util.StringAttribute" value="FCFS + Preempt"/>
+                    <property name="Scheduler_RR" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_RR"/>
+                    <property name="Scheduler_User_1" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_1"/>
+                    <property name="Scheduler_User_2" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_2"/>
+                </property>
+            </property>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="This_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="7"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[563.5, 300.75]"/>
+        </entity>
+        <entity name="SystemResource2" class="VisualSim.actor.lib.Scheduler_SW">
+            <property name="Resource_Name" class="VisualSim.data.expr.Parameter" value="&quot;1&quot;"/>
+            <property name="Clock_Rate_Mhz" class="VisualSim.data.expr.Parameter" value="Big_Core_Speed"/>
+            <property name="Time_Type" class="VisualSim.kernel.util.StringAttribute" value="Relative Time">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Relative Time" class="VisualSim.kernel.util.StringAttribute" value="Relative Time"/>
+                    <property name="Number Clocks" class="VisualSim.kernel.util.StringAttribute" value="Number Clocks"/>
+                </property>
+            </property>
+            <property name="Scheduler_Type" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Scheduler_FCFS" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS"/>
+                    <property name="FCFS + Preempt" class="VisualSim.kernel.util.StringAttribute" value="FCFS + Preempt"/>
+                    <property name="Scheduler_RR" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_RR"/>
+                    <property name="Scheduler_User_1" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_1"/>
+                    <property name="Scheduler_User_2" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_2"/>
+                </property>
+            </property>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="This_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="7"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[563.0, 242.0]"/>
+        </entity>
+        <entity name="SystemResource3" class="VisualSim.actor.lib.Scheduler_SW">
+            <property name="Resource_Name" class="VisualSim.data.expr.Parameter" value="&quot;2&quot;"/>
+            <property name="Clock_Rate_Mhz" class="VisualSim.data.expr.Parameter" value="Little_Core_Speed"/>
+            <property name="Time_Type" class="VisualSim.kernel.util.StringAttribute" value="Relative Time">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Relative Time" class="VisualSim.kernel.util.StringAttribute" value="Relative Time"/>
+                    <property name="Number Clocks" class="VisualSim.kernel.util.StringAttribute" value="Number Clocks"/>
+                </property>
+            </property>
+            <property name="Scheduler_Type" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Scheduler_FCFS" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS"/>
+                    <property name="FCFS + Preempt" class="VisualSim.kernel.util.StringAttribute" value="FCFS + Preempt"/>
+                    <property name="Scheduler_RR" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_RR"/>
+                    <property name="Scheduler_User_1" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_1"/>
+                    <property name="Scheduler_User_2" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_2"/>
+                </property>
+            </property>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="This_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="7"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[563.0, 185.0]"/>
+        </entity>
+        <entity name="SystemResource4" class="VisualSim.actor.lib.Scheduler_SW">
+            <property name="Resource_Name" class="VisualSim.data.expr.Parameter" value="&quot;3&quot;"/>
+            <property name="Clock_Rate_Mhz" class="VisualSim.data.expr.Parameter" value="Little_Core_Speed"/>
+            <property name="Time_Type" class="VisualSim.kernel.util.StringAttribute" value="Relative Time">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Relative Time" class="VisualSim.kernel.util.StringAttribute" value="Relative Time"/>
+                    <property name="Number Clocks" class="VisualSim.kernel.util.StringAttribute" value="Number Clocks"/>
+                </property>
+            </property>
+            <property name="Scheduler_Type" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Scheduler_FCFS" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS"/>
+                    <property name="FCFS + Preempt" class="VisualSim.kernel.util.StringAttribute" value="FCFS + Preempt"/>
+                    <property name="Scheduler_RR" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_RR"/>
+                    <property name="Scheduler_User_1" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_1"/>
+                    <property name="Scheduler_User_2" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_2"/>
+                </property>
+            </property>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="This_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="7"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[566.0, 125.0]"/>
+        </entity>
+        <entity name="Waveform_Plot" class="VisualSim.actor.lib.gui.TimedPlotter">
+            <property name="legend" class="VisualSim.kernel.util.StringAttribute" value="3,2,1,0"/>
+            <property name="_windowProperties" class="VisualSim.actor.gui.WindowPropertiesAttribute" value="{bounds={-7, -7, 1295, 775}, maximized=true}"/>
+            <property name="_plotSize" class="VisualSim.actor.gui.SizeAttribute" value="[1281, 716]"/>
+            <property name="viewPlot" class="VisualSim.data.expr.Parameter" value="View_Stats">
+                <property name="Line" class="VisualSim.actor.gui.style.LineStyle"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[740.0, 215.0]"/>
+            <configure>
+<?plotml
+<!DOCTYPE plot PUBLIC "-//Mirabilis Design//DTD PlotML 1//EN"
+"http://www.mirabilisdesign.com/xml/dtd/PlotML_1.dtd">
+                <plot>
+<title>Waveform_Plot</title>
+<xLabel>Simulation Time (Secs)</xLabel>
+<yLabel>Task Name</yLabel>
+                    <xRange min="4.0E-9" max="0.0315058064"/>
+                    <yRange min="0.0" max="4.0"/>
+                    <yTicks>
+                        <tick label="Task1" position="1.0"/>
+                        <tick label="Task2" position="2.0"/>
+                        <tick label="Task3" position="3.0"/>
+                        <tick label="Task4" position="4.0"/>
+                    </yTicks>
+                    <default/>
+                </plot>
+?>
+            </configure>
+        </entity>
+        <entity name="SystemResource_Extend3" class="VisualSim.actor.lib.Scheduler_HW">
+            <property name="Resource_Name" class="VisualSim.data.expr.Parameter" value="TASK"/>
+            <property name="Clock_Rate_Mhz" class="VisualSim.data.expr.Parameter" value="Core_Speed"/>
+            <property name="Max_Scheduler_Length" class="VisualSim.data.expr.Parameter" value="30"/>
+            <property name="Time_Type" class="VisualSim.kernel.util.StringAttribute" value="Number Clocks">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Relative Time" class="VisualSim.kernel.util.StringAttribute" value="Relative Time"/>
+                    <property name="Number Clocks" class="VisualSim.kernel.util.StringAttribute" value="Number Clocks"/>
+                </property>
+            </property>
+            <property name="Scheduler_Type" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_NonBlocking_FCFS">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Scheduler_FCFS" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_FCFS"/>
+                    <property name="Scheduler_NonBlocking_FCFS" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_NonBlocking_FCFS"/>
+                    <property name="Scheduler_RR" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_RR"/>
+                    <property name="Scheduler_User_1" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_1"/>
+                    <property name="Scheduler_User_2" class="VisualSim.kernel.util.StringAttribute" value="Scheduler_User_2"/>
+                </property>
+            </property>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="This_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="7"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[23.0, 187.0]"/>
+        </entity>
+        <entity name="Queues" class="VisualSim.actor.lib.Smart_Resource">
+            <property name="Block_Name" class="VisualSim.data.expr.Parameter" value="&quot;Queue&quot;"/>
+            <property name="Max_Queue_Length" class="VisualSim.data.expr.Parameter" value="30"/>
+            <property name="Initial_Queue_State" class="VisualSim.kernel.util.StringAttribute" value="First_Token_Enqueue">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="First_Token_Flow_Through" class="VisualSim.kernel.util.StringAttribute" value="First_Token_Flow_Through"/>
+                    <property name="First_Token_Enqueue" class="VisualSim.kernel.util.StringAttribute" value="First_Token_Enqueue"/>
+                </property>
+            </property>
+            <property name="Queue_Reject_Mechanism" class="VisualSim.kernel.util.StringAttribute" value="Incoming_Token_Rejected">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Incoming_Token_Rejected" class="VisualSim.kernel.util.StringAttribute" value="Incoming_Token_Rejected"/>
+                    <property name="Lowest_Priority_Token_Rejected" class="VisualSim.kernel.util.StringAttribute" value="Lowest_Priority_Token_Rejected"/>
+                </property>
+            </property>
+            <property name="Queue_Type" class="VisualSim.kernel.util.StringAttribute" value="FIFO">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="FIFO" class="VisualSim.kernel.util.StringAttribute" value="FIFO"/>
+                    <property name="LIFO" class="VisualSim.kernel.util.StringAttribute" value="LIFO"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[193.0, 173.0]"/>
+            <port name="pop_input" class="VisualSim.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="_cardinal" class="VisualSim.kernel.util.StringAttribute" value="SOUTH"/>
+            </port>
+        </entity>
+        <entity name="Fork2" class="VisualSim.actor.lib.logic.Connect_EIO">
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[133.0, 197.0]"/>
+        </entity>
+        <entity name="Script" class="VisualSim.actor.lib.Virtual_Machine">
+            <property name="Block_Name" class="VisualSim.data.expr.Parameter" value="&quot;Dispatcher&quot;"/>
+            <property name="Expression_List" class="VisualSim.kernel.util.StringAttribute" value="Resource_Avail  =  newArray (Num_Cores, true)      /* Mem1 */&#10;Proc_Speed      =  newArray(Num_Cores,Core_Speed)    /* DS2  */&#10;&#10;Proc_Speed(0) = Big_Core_Speed                          /* Big Core 1 */&#10;Proc_Speed(1) = Big_Core_Speed                          /* Big Core 2 */&#10;Proc_Speed(2) = Little_Core_Speed                       /* Little Core 3 */&#10;Proc_Speed(3) = Little_Core_Speed                       /* Little Core 4 */&#10;LABEL: BEGIN&#10;if(port_name == &quot;virtual&quot;)  &#10;{&#10;	Resource_Avail(port_token.Avl_Resource)= true&#10;}	&#10;if(getBlockStatus(&quot;Queue&quot;,&quot;length&quot;,1,1)&gt;0  &amp;&amp; (find(Resource_Avail)).length()&gt;0)&#10;{&#10;	Next_Trans  = getBlockStatus(&quot;Queue&quot;,&quot;Take&quot;,1,1) &#10;	Next_Trans.Avl_Resource = (find(Resource_Avail))(0)&#10;	Resource_Avail(Next_Trans.Avl_Resource)= false&#10;	Next_Trans.Core_Name = toString(Next_Trans.Avl_Resource)&#10;	Next_Trans.Processing_Time = Next_Trans.Num_Inst / Proc_Speed (Next_Trans.Avl_Resource)/1.0e6&#10;	SEND(output,Next_Trans)&#10;}">
+                <property name="style" class="VisualSim.actor.gui.style.TextStyle"/>
+            </property>
+            <property name="Optional_Parameters" class="VisualSim.kernel.util.StringAttribute" value="/* First row contains Column Names.              */&#10;Parameter_Name                 Parameter_Value     &#10;Path                           VS/User_Library     &#10;Read_File                      none                &#10;Save_Files                     false               &#10;Profile_File                   none                &#10;Listen_to_File                 none                &#10;Duplicate_Input                true                &#10;Profile                        0                   &#10;Maximum_Loops                  1000000             &#10;Block_Reference                Block_Name         &#10;Port_Order_Array               {&quot;input&quot;}         &#10;Add_Scheduler_Times_to_DS      false               &#10;">
+                <property name="style" class="VisualSim.actor.gui.style.TextStyle"/>
+            </property>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIconVM">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Block_Name"/>
+                <property name="attributeName2" class="VisualSim.kernel.util.StringAttribute" value="Expression_List"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="12"/>
+            </property>
+            <property name="_tableauFactory" class="VisualSim.ModelBuilder.toolbox.TextEditorTableauFactory">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Expression_List"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[183.0, 259.0]"/>
+        </entity>
+        <entity name="Mapper2" class="VisualSim.actor.lib.Task_Basic">
+            <property name="Target_Resource" class="VisualSim.data.expr.StringParameter" value="input.Core_Name"/>
+            <property name="Task_Number" class="VisualSim.data.expr.StringParameter" value="input.Number"/>
+            <property name="Task_Priority" class="VisualSim.data.expr.StringParameter" value="input.Priority"/>
+            <property name="Task_Time" class="VisualSim.data.expr.StringParameter" value="input.Processing_Time"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Parent_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="4"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[299.0, 276.0]"/>
+        </entity>
+        <entity name="SR_Done" class="VisualSim.actor.lib.Task_Complete">
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[388.0, 239.0]"/>
+        </entity>
+        <entity name="ExpressionList" class="VisualSim.actor.lib.Expression_Decision">
+            <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="/* Template to enter multiple RegEx lines*/&#10;   Result_A = MyRegExpression_A_or_None /* Expression 1 */&#10;   Result_B = MyRegExpression_B_or_None  /* Expression 2 */&#10;   Result_C = MyRegExpression_C_or_None /* Expression 3 */  &#10;/* Add as many RegEx lines are required */&#10;"/>
+            <property name="Expression_List" class="VisualSim.kernel.util.StringAttribute" value="/* Template to enter multiple RegEx lines*/">
+                <property name="style" class="VisualSim.actor.gui.style.TextStyle">
+                    <property name="height" class="VisualSim.data.expr.Parameter" value="15"/>
+                    <property name="width" class="VisualSim.data.expr.Parameter" value="40"/>
+                </property>
+            </property>
+            <property name="Output_Values" class="VisualSim.data.expr.StringParameter" value="TNow-input.TIME"/>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[388.0, 302.0]"/>
+        </entity>
+        <entity name="Latency" class="VisualSim.actor.lib.gui.TimedPlotter">
+            <property name="_windowProperties" class="VisualSim.actor.gui.WindowPropertiesAttribute" value="{bounds={-7, -7, 1295, 775}, maximized=true}"/>
+            <property name="_plotSize" class="VisualSim.actor.gui.SizeAttribute" value="[1281, 716]"/>
+            <property name="viewPlot" class="VisualSim.data.expr.Parameter" value="View_Stats">
+                <property name="Line" class="VisualSim.actor.gui.style.LineStyle"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[479.0, 302.0]"/>
+            <configure>
+<?plotml
+<!DOCTYPE plot PUBLIC "-//Mirabilis Design//DTD PlotML 1//EN"
+"http://www.mirabilisdesign.com/xml/dtd/PlotML_1.dtd">
+                <plot>
+<title>Latency</title>
+<xLabel>Simulation Time (Secs)</xLabel>
+<yLabel>Task Delay (Secs)</yLabel>
+                    <xRange min="1.704E-6" max="0.0315058064"/>
+                    <yRange min="1.704E-6" max="6.504000000000926E-6"/>
+                    <default marks="various"/>
+                </plot>
+?>
+            </configure>
+        </entity>
+        <entity name="OUT" class="VisualSim.actor.lib.OUT">
+            <property name="Destination_Name" class="VisualSim.data.expr.StringParameter" value="Dispatcher"/>
+            <property name="Destination_Type" class="VisualSim.kernel.util.StringAttribute" value="Global">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Local" class="VisualSim.kernel.util.StringAttribute" value="Local"/>
+                    <property name="Global" class="VisualSim.kernel.util.StringAttribute" value="Global"/>
+                </property>
+            </property>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Destination_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="4"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[448.0, 239.0]"/>
+        </entity>
+        <entity name="Mapper" class="VisualSim.actor.lib.Task_Basic">
+            <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            <property name="Target_Resource" class="VisualSim.data.expr.StringParameter" value="TASK"/>
+            <property name="Task_Number" class="VisualSim.data.expr.StringParameter" value="input.Number"/>
+            <property name="Task_Priority" class="VisualSim.data.expr.StringParameter" value="input.Priority"/>
+            <property name="Task_Time" class="VisualSim.data.expr.StringParameter" value="1"/>
+            <property name="Task_Plot_ID" class="VisualSim.data.expr.Parameter" value="1"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Parent_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="4"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[230.296875, 408.78515625]"/>
+            <port name="input" class="VisualSim.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+            <port name="output" class="VisualSim.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+            <port name="plot" class="VisualSim.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+        </entity>
+        <entity name="Mapper3" class="VisualSim.actor.lib.Task_Basic">
+            <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            <property name="Target_Resource" class="VisualSim.data.expr.StringParameter" value="TASK"/>
+            <property name="Task_Number" class="VisualSim.data.expr.StringParameter" value="input.Number"/>
+            <property name="Task_Priority" class="VisualSim.data.expr.StringParameter" value="input.Priority"/>
+            <property name="Task_Time" class="VisualSim.data.expr.StringParameter" value="1"/>
+            <property name="Task_Plot_ID" class="VisualSim.data.expr.Parameter" value="2"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Parent_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="4"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[230.296875, 458.78515625]"/>
+            <port name="input" class="VisualSim.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+            <port name="output" class="VisualSim.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+            <port name="plot" class="VisualSim.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+        </entity>
+        <entity name="Mapper4" class="VisualSim.actor.lib.Task_Basic">
+            <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            <property name="Target_Resource" class="VisualSim.data.expr.StringParameter" value="TASK"/>
+            <property name="Task_Number" class="VisualSim.data.expr.StringParameter" value="input.Number"/>
+            <property name="Task_Priority" class="VisualSim.data.expr.StringParameter" value="input.Priority"/>
+            <property name="Task_Time" class="VisualSim.data.expr.StringParameter" value="1"/>
+            <property name="Task_Plot_ID" class="VisualSim.data.expr.Parameter" value="3"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Parent_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="4"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[229.296875, 508.78515625]"/>
+            <port name="input" class="VisualSim.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+            <port name="output" class="VisualSim.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+            <port name="plot" class="VisualSim.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+        </entity>
+        <entity name="Mapper5" class="VisualSim.actor.lib.Task_Basic">
+            <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            <property name="Target_Resource" class="VisualSim.data.expr.StringParameter" value="TASK"/>
+            <property name="Task_Number" class="VisualSim.data.expr.StringParameter" value="input.Number"/>
+            <property name="Task_Priority" class="VisualSim.data.expr.StringParameter" value="input.Priority"/>
+            <property name="Task_Time" class="VisualSim.data.expr.StringParameter" value="1"/>
+            <property name="Task_Plot_ID" class="VisualSim.data.expr.Parameter" value="4"/>
+            <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIcon">
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Parent_Scheduler_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="4"/>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[229.296875, 558.78515625]"/>
+            <port name="input" class="VisualSim.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+            <port name="output" class="VisualSim.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+            <port name="plot" class="VisualSim.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="Enter User Documentation Here"/>
+            </port>
+        </entity>
+        <entity name="Task" class="VisualSim.actor.lib.DS_Source">
+            <property name="Data_Structure_Name" class="VisualSim.data.expr.Parameter" value="&quot;Trigger&quot;"/>
+            <property name="Value_1" class="VisualSim.data.expr.Parameter" value="10.0e-4"/>
+            <property name="Time_Distribution" class="VisualSim.kernel.util.StringAttribute" value="Fixed (Value_1)">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Single Event" class="VisualSim.kernel.util.StringAttribute" value="Single Event"/>
+                    <property name="Fixed (Value_1)" class="VisualSim.kernel.util.StringAttribute" value="Fixed (Value_1)"/>
+                    <property name="Uniform (Value_1, Value_2)" class="VisualSim.kernel.util.StringAttribute" value="Uniform (Value_1, Value_2)"/>
+                    <property name="Exponential (Value_1)" class="VisualSim.kernel.util.StringAttribute" value="Exponential (Value_1)"/>
+                    <property name="Normal (Value_1, Value_2)" class="VisualSim.kernel.util.StringAttribute" value="Normal (Value_1, Value_2)"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[30.296875, 408.78515625]"/>
+        </entity>
+        <entity name="Task2" class="VisualSim.actor.lib.DS_Source">
+            <property name="Data_Structure_Name" class="VisualSim.data.expr.Parameter" value="&quot;Trigger&quot;"/>
+            <property name="Start_Time" class="VisualSim.data.expr.Parameter" value="Task_Cycle_Shift"/>
+            <property name="Value_1" class="VisualSim.data.expr.Parameter" value="10.0e-4"/>
+            <property name="Time_Distribution" class="VisualSim.kernel.util.StringAttribute" value="Fixed (Value_1)">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Single Event" class="VisualSim.kernel.util.StringAttribute" value="Single Event"/>
+                    <property name="Fixed (Value_1)" class="VisualSim.kernel.util.StringAttribute" value="Fixed (Value_1)"/>
+                    <property name="Uniform (Value_1, Value_2)" class="VisualSim.kernel.util.StringAttribute" value="Uniform (Value_1, Value_2)"/>
+                    <property name="Exponential (Value_1)" class="VisualSim.kernel.util.StringAttribute" value="Exponential (Value_1)"/>
+                    <property name="Normal (Value_1, Value_2)" class="VisualSim.kernel.util.StringAttribute" value="Normal (Value_1, Value_2)"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[32.703125, 459.21484375]"/>
+        </entity>
+        <entity name="Task3" class="VisualSim.actor.lib.DS_Source">
+            <property name="Data_Structure_Name" class="VisualSim.data.expr.Parameter" value="&quot;Trigger&quot;"/>
+            <property name="Start_Time" class="VisualSim.data.expr.Parameter" value="Task_Cycle_Shift * 2.5"/>
+            <property name="Value_1" class="VisualSim.data.expr.Parameter" value="10.0e-4"/>
+            <property name="Time_Distribution" class="VisualSim.kernel.util.StringAttribute" value="Fixed (Value_1)">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Single Event" class="VisualSim.kernel.util.StringAttribute" value="Single Event"/>
+                    <property name="Fixed (Value_1)" class="VisualSim.kernel.util.StringAttribute" value="Fixed (Value_1)"/>
+                    <property name="Uniform (Value_1, Value_2)" class="VisualSim.kernel.util.StringAttribute" value="Uniform (Value_1, Value_2)"/>
+                    <property name="Exponential (Value_1)" class="VisualSim.kernel.util.StringAttribute" value="Exponential (Value_1)"/>
+                    <property name="Normal (Value_1, Value_2)" class="VisualSim.kernel.util.StringAttribute" value="Normal (Value_1, Value_2)"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[30.828125, 508.96484375]"/>
+        </entity>
+        <entity name="Task4" class="VisualSim.actor.lib.DS_Source">
+            <property name="Data_Structure_Name" class="VisualSim.data.expr.Parameter" value="&quot;Trigger&quot;"/>
+            <property name="Start_Time" class="VisualSim.data.expr.Parameter" value="Task_Cycle_Shift * 1.5"/>
+            <property name="Value_1" class="VisualSim.data.expr.Parameter" value="5.0e-4"/>
+            <property name="Time_Distribution" class="VisualSim.kernel.util.StringAttribute" value="Fixed (Value_1)">
+                <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                    <property name="Single Event" class="VisualSim.kernel.util.StringAttribute" value="Single Event"/>
+                    <property name="Fixed (Value_1)" class="VisualSim.kernel.util.StringAttribute" value="Fixed (Value_1)"/>
+                    <property name="Uniform (Value_1, Value_2)" class="VisualSim.kernel.util.StringAttribute" value="Uniform (Value_1, Value_2)"/>
+                    <property name="Exponential (Value_1)" class="VisualSim.kernel.util.StringAttribute" value="Exponential (Value_1)"/>
+                    <property name="Normal (Value_1, Value_2)" class="VisualSim.kernel.util.StringAttribute" value="Normal (Value_1, Value_2)"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[30.828125, 558.96484375]"/>
+        </entity>
+        <entity name="ExpressionList2" class="VisualSim.actor.lib.Expression_Decision">
+            <property name="Expression_List" class="VisualSim.kernel.util.StringAttribute" value="input.Number = 1&#10;input.Priority = 1&#10;input.Num_Inst = 1000">
+                <property name="style" class="VisualSim.actor.gui.style.TextStyle">
+                    <property name="height" class="VisualSim.data.expr.Parameter" value="15"/>
+                    <property name="width" class="VisualSim.data.expr.Parameter" value="40"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[134.296875, 408.78515625]"/>
+        </entity>
+        <entity name="ExpressionList3" class="VisualSim.actor.lib.Expression_Decision">
+            <property name="Expression_List" class="VisualSim.kernel.util.StringAttribute" value="input.Number = 2&#10;input.Priority = 1&#10;input.Num_Inst = 4000">
+                <property name="style" class="VisualSim.actor.gui.style.TextStyle">
+                    <property name="height" class="VisualSim.data.expr.Parameter" value="15"/>
+                    <property name="width" class="VisualSim.data.expr.Parameter" value="40"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[133.296875, 458.78515625]"/>
+        </entity>
+        <entity name="ExpressionList4" class="VisualSim.actor.lib.Expression_Decision">
+            <property name="Expression_List" class="VisualSim.kernel.util.StringAttribute" value="input.Number = 3&#10;input.Priority = 1&#10;input.Num_Inst = 3564">
+                <property name="style" class="VisualSim.actor.gui.style.TextStyle">
+                    <property name="height" class="VisualSim.data.expr.Parameter" value="15"/>
+                    <property name="width" class="VisualSim.data.expr.Parameter" value="40"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[129.296875, 508.78515625]"/>
+        </entity>
+        <entity name="ExpressionList5" class="VisualSim.actor.lib.Expression_Decision">
+            <property name="Expression_List" class="VisualSim.kernel.util.StringAttribute" value="input.Number = 4&#10;input.Priority = 1&#10;input.Num_Inst = 1500">
+                <property name="style" class="VisualSim.actor.gui.style.TextStyle">
+                    <property name="height" class="VisualSim.data.expr.Parameter" value="15"/>
+                    <property name="width" class="VisualSim.data.expr.Parameter" value="40"/>
+                </property>
+            </property>
+            <property name="_location" class="VisualSim.kernel.util.Location" value="[130.296875, 558.78515625]"/>
+        </entity>
+        <relation name="relation8" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation9" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation10" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation11" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation20" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation21" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation22" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation27" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation2" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+            <vertex name="vertex1" class="VisualSim.moml.Vertex" value="[373.0, 284.0]"/>
+        </relation>
+        <relation name="relation4" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation3" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation5" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation6" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation7" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation12" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation13" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation14" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <relation name="relation15" class="VisualSim.actor.TypedIORelation">
+            <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        </relation>
+        <link port="SystemResource.task_plot" relation="relation11"/>
+        <link port="SystemResource2.task_plot" relation="relation10"/>
+        <link port="SystemResource3.task_plot" relation="relation9"/>
+        <link port="SystemResource4.task_plot" relation="relation8"/>
+        <link port="Waveform_Plot.input" relation="relation8"/>
+        <link port="Waveform_Plot.input" relation="relation9"/>
+        <link port="Waveform_Plot.input" relation="relation10"/>
+        <link port="Waveform_Plot.input" relation="relation11"/>
+        <link port="SystemResource_Extend3.task_output" relation="relation20"/>
+        <link port="Queues.input" relation="relation21"/>
+        <link port="Fork2.input" relation="relation20"/>
+        <link port="Fork2.output" relation="relation21"/>
+        <link port="Fork2.output2" relation="relation22"/>
+        <link port="Script.input" relation="relation22"/>
+        <link port="Script.output" relation="relation"/>
+        <link port="Mapper2.input" relation="relation"/>
+        <link port="Mapper2.output" relation="relation2"/>
+        <link port="SR_Done.input" relation="relation2"/>
+        <link port="SR_Done.output" relation="relation4"/>
+        <link port="ExpressionList.input" relation="relation2"/>
+        <link port="ExpressionList.output" relation="relation27"/>
+        <link port="Latency.input" relation="relation27"/>
+        <link port="OUT.input" relation="relation4"/>
+        <link port="Mapper.input" relation="relation5"/>
+        <link port="Mapper3.input" relation="relation6"/>
+        <link port="Mapper4.input" relation="relation12"/>
+        <link port="Mapper5.input" relation="relation15"/>
+        <link port="Task.output" relation="relation3"/>
+        <link port="Task2.output" relation="relation7"/>
+        <link port="Task3.output" relation="relation13"/>
+        <link port="Task4.output" relation="relation14"/>
+        <link port="ExpressionList2.input" relation="relation3"/>
+        <link port="ExpressionList2.output" relation="relation5"/>
+        <link port="ExpressionList3.input" relation="relation7"/>
+        <link port="ExpressionList3.output" relation="relation6"/>
+        <link port="ExpressionList4.input" relation="relation13"/>
+        <link port="ExpressionList4.output" relation="relation12"/>
+        <link port="ExpressionList5.input" relation="relation14"/>
+        <link port="ExpressionList5.output" relation="relation15"/>
+    </entity>
+    <entity name="Instantaneous_Average_Power" class="VisualSim.actor.lib.gui.TimedPlotter">
+        <property name="legend" class="VisualSim.kernel.util.StringAttribute" value="Average,Instant"/>
+        <property name="_windowProperties" class="VisualSim.actor.gui.WindowPropertiesAttribute" value="{bounds={-7, -7, 1295, 775}, maximized=true}"/>
+        <property name="_plotSize" class="VisualSim.actor.gui.SizeAttribute" value="[1281, 716]"/>
+        <property name="fileName" class="VisualSim.data.expr.FileParameter" value="file:/C:/Users/Admin/문서/Instantaneous_Average_Power.plt"/>
+        <property name="viewPlot" class="VisualSim.data.expr.Parameter" value="View_Stats">
+            <property name="Line" class="VisualSim.actor.gui.style.LineStyle"/>
+        </property>
+        <property name="savePlot" class="VisualSim.data.expr.Parameter" value="true"/>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="{531.0, 221.0}"/>
+        <configure>
+<?plotml
+<!DOCTYPE plot PUBLIC "-//Mirabilis Design//DTD PlotML 1//EN"
+"http://www.mirabilisdesign.com/xml/dtd/PlotML_1.dtd">
+            <plot>
+<title>Instantaneous_Average_Power</title>
+<xLabel>Simulation Time (Secs)</xLabel>
+<yLabel>Power Consumption (Watts)</yLabel>
+                <xRange min="0.0" max="0.031505906401"/>
+                <yRange min="0.0" max="0.008005"/>
+                <default marks="various"/>
+            </plot>
+?>
+        </configure>
+    </entity>
+    <entity name="PowerTable2" class="VisualSim.actor.lib.power.Power_Manager">
+        <property name="Block_Documentation" class="VisualSim.kernel.util.DocumentAttribute" value="This is the Excel spreadsheet import.  The power &#10;information is maintained here."/>
+        <property name="Manager_Name" class="VisualSim.data.expr.Parameter" value="&quot;Manager_1&quot;">
+            <property name="Line" class="VisualSim.actor.gui.style.LineStyle"/>
+        </property>
+        <property name="Manager_Setup" class="VisualSim.kernel.util.StringAttribute" value="/* Power_Table.  First row contains Column Names, expressions valid for entries except Device Name.                                                 &#10;                                                                                                                                                    &#10;--------Device Name-------  ---------Power States------  -----Operating States------  -----------State Transitions---------  --Speed--  --Exist-- */&#10;    Architecture_Block      Standby 	   Active          Wait     Idle    Existing  OffState  OnState  t_OnOff     Mhz       Volts   ; &#10;Scheduler_0  BigStbyPwr    BigActPwr      0.0  0.0  Standby  Standby  Active  100.0e-9  2500.0  1.2  ;&#10;Scheduler_1  BigStbyPwr    BigActPwr      0.0  0.0  Standby  Standby  Active  100.0e-9  2500.0  1.2  ;&#10;Scheduler_2  LittleStbyPwr LittleActPwr   0.0  0.0  Standby  Standby  Active  100.0e-9  1000.0  0.8  ;&#10;Scheduler_3  LittleStbyPwr LittleActPwr   0.0  0.0  Standby  Standby  Active  100.0e-9  1000.0  0.8  ;"/>
+        <property name="Delay_to_Change_State" class="VisualSim.kernel.util.StringAttribute" value="/* Async_State_Change.  First row contains Column Names, expressions valid for entries except Device Name.                                                 &#10;                                                                                                                                                    &#10;--------Device Name-------  ------------Time State--------- */&#10;    Architecture_Block      State     Time_or_Express  Next ; &#10;"/>
+        <property name="Expression_List" class="VisualSim.kernel.util.StringAttribute" value="/* First row contains Column Names.                                                                                                                 &#10;                                                                                                                                                    &#10;---------Reference--------  ------------------------------------Expression----------------------------------------------------------------------- */&#10;           Name                                                   Value                                                                           ; &#10;Standby_Power           0.01              ;&#10;Active_Power            Core_Power/100.0  ;&#10;BigActPwr               Core_Power*1.4/100.0  ;&#10;LittleActPwr            Core_Power*0.4/100.0  ;&#10;BigStbyPwr              0.02              ;&#10;LittleStbyPwr           0.005             ;"/>
+        <property name="Battery_Units" class="VisualSim.kernel.util.StringAttribute" value="Milli_Watts">
+            <property name="style" class="VisualSim.actor.gui.style.ChoiceStyle">
+                <property name="Micro_Watts" class="VisualSim.kernel.util.StringAttribute" value="Micro_Watts"/>
+                <property name="Milli_Watts" class="VisualSim.kernel.util.StringAttribute" value="Milli_Watts"/>
+                <property name="Watts" class="VisualSim.kernel.util.StringAttribute" value="Watts"/>
+            </property>
+        </property>
+        <property name="State_Plot_Enable" class="VisualSim.data.expr.Parameter" value="true"/>
+        <property name="Generate_UPF_TB" class="VisualSim.data.expr.Parameter" value="true"/>
+        <property name="Power_ManagerIcon" class="VisualSim.ModelBuilder.icon.EditorIcon">
+            <property name="image" class="VisualSim.ModelBuilder.kernel.attributes.ImageAttribute">
+                <property name="source" class="VisualSim.data.expr.FileParameter" value="$VS/VisualSim/ModelBuilder/basic/img/aqua/Arch_Block_Red_96x64.png"/>
+                <property name="_location" class="VisualSim.kernel.util.Location" value="[-45.0, -34.0]"/>
+            </property>
+            <property name="ParameterValue" class="VisualSim.ModelBuilder.kernel.attributes.AttributeValueAttribute">
+                <property name="textSize" class="VisualSim.data.expr.Parameter" value="11"/>
+                <property name="textColor" class="VisualSim.actor.gui.ColorAttribute" value="{0.2,0.2,0.2,1.0}"/>
+                <property name="fontFamily" class="VisualSim.data.expr.StringParameter" value="Arial Narrow"/>
+                <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Manager_Name"/>
+                <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="13"/>
+                <property name="_location" class="VisualSim.kernel.util.Location" value="[-27.0, -25.0]"/>
+            </property>
+            <property name="_windowProperties" class="VisualSim.actor.gui.WindowPropertiesAttribute" value="{bounds={232, 76, 879, 698}, maximized=false}"/>
+            <property name="_ModelBuilderSize" class="VisualSim.actor.gui.SizeAttribute" value="[600, 400]"/>
+            <property name="_ModelBuilderZoomFactor" class="VisualSim.data.expr.ExpertParameter" value="4.0"/>
+            <property name="_ModelBuilderCenter" class="VisualSim.data.expr.ExpertParameter" value="{0.0, 0.0}&#10;"/>
+        </property>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[417.0, 241.0]"/>
+    </entity>
+    <entity name="Script" class="VisualSim.actor.lib.Virtual_Machine">
+        <property name="Block_Name" class="VisualSim.data.expr.Parameter" value="&quot;MyChipThermal&quot;"/>
+        <property name="Expression_List" class="VisualSim.kernel.util.StringAttribute" value="/* Power, Thermal.              */&#10;T_Ambient                       = Ambient_Temp_C       // 40.0 C&#10;Theta_JC                        = 20.0     // junction to case C / W, estd&#10;Theta_CS                        = 0.8      // case     to heatsink C / W, estd&#10;Theta_SA                        = 20.0     // heatsink to ambient  C / W, estd&#10;Theta_JA                        = 21.62    // junction to ambient temp C / W, estd&#10;&#10;LABEL: BEGIN&#10;   Power                        = port_token       // watts&#10;&#10;   Theta_Sum                    = Theta_JC + Theta_CS + Theta_SA&#10;   T_Junction_Numerator         = Theta_JA * Theta_Sum&#10;   T_Junction_Denominator       = Theta_JA + Theta_Sum&#10;   T_Junction                   = T_Ambient+ ((T_Junction_Numerator/T_Junction_Denominator)*Power)&#10;   SEND (temperature, T_Junction)&#10;&#10;&#10;">
+            <property name="style" class="VisualSim.actor.gui.style.TextStyle"/>
+        </property>
+        <property name="Optional_Parameters" class="VisualSim.kernel.util.StringAttribute" value="/* First row contains Column Names.              */&#10;Parameter_Name                 Parameter_Value     &#10;Path                           none     &#10;Read_File                      none                &#10;Save_Files                     false               &#10;Profile_File                   none                &#10;Listen_to_File                 none                &#10;Duplicate_Input                true                &#10;Profile                        0                   &#10;Maximum_Loops                  1000000             &#10;Block_Reference                Block_Name         &#10;Port_Order_Array               {&quot;input&quot;}         &#10;Add_Scheduler_Times_to_DS      false               &#10;">
+            <property name="style" class="VisualSim.actor.gui.style.TextStyle"/>
+        </property>
+        <property name="_icon" class="VisualSim.ModelBuilder.icon.AttributeValueIconVM">
+            <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Block_Name"/>
+            <property name="attributeName2" class="VisualSim.kernel.util.StringAttribute" value="Expression_List"/>
+            <property name="displayWidth" class="VisualSim.data.expr.Parameter" value="12"/>
+        </property>
+        <property name="_tableauFactory" class="VisualSim.ModelBuilder.toolbox.TextEditorTableauFactory">
+            <property name="attributeName" class="VisualSim.kernel.util.StringAttribute" value="Expression_List"/>
+        </property>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[516.0, 271.0]"/>
+        <port name="temperature" class="VisualSim.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="VisualSim.actor.TypeAttribute" value="general"/>
+        </port>
+    </entity>
+    <entity name="Temperature" class="VisualSim.actor.lib.gui.TimedPlotter">
+        <property name="_windowProperties" class="VisualSim.actor.gui.WindowPropertiesAttribute" value="{bounds={-7, -7, 1295, 775}, maximized=true}"/>
+        <property name="_plotSize" class="VisualSim.actor.gui.SizeAttribute" value="[1281, 716]"/>
+        <property name="viewPlot" class="VisualSim.data.expr.Parameter" value="View_Stats">
+            <property name="Line" class="VisualSim.actor.gui.style.LineStyle"/>
+        </property>
+        <property name="_location" class="VisualSim.kernel.util.Location" value="[629.0, 298.0]"/>
+        <configure>
+<?plotml
+<!DOCTYPE plot PUBLIC "-//Mirabilis Design//DTD PlotML 1//EN"
+"http://www.mirabilisdesign.com/xml/dtd/PlotML_1.dtd">
+            <plot>
+<title>Temperature</title>
+<xLabel>SimTime (Sec)</xLabel>
+<yLabel>Temperature (C)</yLabel>
+                <xRange min="0.0" max="0.031505906401"/>
+                <yRange min="40.000706581223966" max="40.11312365395707"/>
+                <default marks="dots"/>
+            </plot>
+?>
+        </configure>
+    </entity>
+    <relation name="relation" class="VisualSim.actor.TypedIORelation">
+        <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        <vertex name="vertex1" class="VisualSim.moml.Vertex" value="{494.0, 251.0}"/>
+    </relation>
+    <relation name="relation3" class="VisualSim.actor.TypedIORelation">
+        <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+    </relation>
+    <relation name="relation2" class="VisualSim.actor.TypedIORelation">
+        <property name="width" class="VisualSim.data.expr.Parameter" value="1"/>
+        <vertex name="vertex1" class="VisualSim.moml.Vertex" value="{493.0, 226.0}"/>
+    </relation>
+    <link port="Instantaneous_Average_Power.input" relation="relation"/>
+    <link port="Instantaneous_Average_Power.input" relation="relation2"/>
+    <link port="PowerTable2.instant_pwr_out" relation="relation2"/>
+    <link port="PowerTable2.average_pwr_out" relation="relation"/>
+    <link port="Script.input" relation="relation2"/>
+    <link port="Script.temperature" relation="relation3"/>
+    <link port="Temperature.input" relation="relation3"/>
+</entity>
