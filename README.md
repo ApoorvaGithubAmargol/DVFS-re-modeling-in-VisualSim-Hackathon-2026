@@ -1,5 +1,3 @@
-# DVFS-re-modeling-in-VisualSim-Hackathon-2026
-
 # Heterogeneous Multi-Core DVFS Architecture (Big.LITTLE) in VisualSim Architect
 
 [![VisualSim Hackathon](https://img.shields.io/badge/VisualSim_Hackathon-Challenge_2-blue.svg)](https://www.mirabilisdesign.com/)
