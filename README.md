@@ -94,12 +94,12 @@ Scheduler_3          LittleStbyPwr   LittleActPwr   0.0   0.0   Standby   Standb
 
 ---
 
-## Top Model :
+## Top Model & Core :
 
-<img width="1555" height="904" alt="Screenshot 2026-10-05 234411" src="https://github.com/user-attachments/assets/a87b21fa-a305-483a-b7fb-1689e4e80bc4" />
+<img width="655" height="404" alt="Screenshot 2026-10-05 234411" src="https://github.com/user-attachments/assets/a87b21fa-a305-483a-b7fb-1689e4e80bc4" />
 
 
-<img width="1920" height="1096" alt="Screenshot 2026-10-05 234345" src="https://github.com/user-attachments/assets/ab92a043-71bd-4e15-b5f4-c7b7113cee14" />
+<img width="920" height="596" alt="Screenshot 2026-10-05 234345" src="https://github.com/user-attachments/assets/ab92a043-71bd-4e15-b5f4-c7b7113cee14" />
 
 
 
